@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TM.Desktop.Format
+namespace TM.Desktop
 {
     public class Location
     {
@@ -171,6 +171,17 @@ namespace TM.Desktop.Format
         public static DateTime EndOfDate(this DateTime date)
         {
             return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
+        }
+
+        //Formating Datetime
+        public static string SecondsToTime(double seconds,string format= @"hh\:mm\:ss")
+        {
+            TimeSpan time = TimeSpan.FromSeconds(seconds);
+
+            //here backslash is must to tell that colon is
+            //not the part of format, it just a character that we want in output
+            string str = time.ToString(format);
+            return str;
         }
     }
 }

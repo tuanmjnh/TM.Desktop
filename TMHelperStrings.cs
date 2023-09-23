@@ -176,7 +176,7 @@ namespace TM.Desktop
         }
         public static String PriceVN(this string val, string s)
         {
-            try { return Convert.ToDecimal(val).ToString("N0", Format.Formating.FormatNumber()) + " " + s; }
+            try { return Convert.ToDecimal(val).ToString("N0", Formating.FormatNumber()) + " " + s; }
             catch (Exception) { return val.ToString(); }
         }
         public static String PriceVN(this string val)
@@ -423,6 +423,26 @@ namespace TM.Desktop
             for (int i = 0; i < ls.Count; i++)
                 ls[i] = ls[i].ToLower();
             return ls;
+        }
+        // String helper System.IO
+        public static string RenameFilePart(this string fileInput, string part)
+        {
+            string ext = Path.GetExtension(fileInput);
+            //var regex = @"(?<=\.)[^.]+$";
+            //string rs = Regex.Match(fileInput, regex).Value;
+            //string rs = fileInput.Replace($".{ext}",)
+            //string rs = Regex.Replace(fileInput, regex, $"{part}.{}");
+            //string rs = System.IO.Path.ChangeExtension(fileInput, $"{part}{ext}");
+            //string rs = System.IO.Path.ChangeExtension(fileInput, $"{ext}");
+            string rs = fileInput.Replace(ext, $"{part}{ext}");
+            return rs;
+        }
+        public static string getFileNameWithOutExtension(this string fileInput)
+        {
+            var filename = Path.GetFileName(fileInput);
+            string ext = Path.GetExtension(filename);
+            string rs = filename.Replace(ext, "");
+            return rs;
         }
     }
 }

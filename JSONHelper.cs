@@ -1,6 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using static TM.Desktop.ReadParseJSONNewtonsoft;
+
 namespace TM.Desktop
 {
     //Read Parse File
@@ -19,65 +21,60 @@ namespace TM.Desktop
         public int CreditUnits { get; set; }
         public int NumberOfStudents { get; set; }
     }
+
+    // ReadAndParseJsonFileWithNewtonsoftJson
     public class ReadParseJSONNewtonsoft
     {
-        public class Configs
+        private readonly string _jsonFilePath;
+
+        public ReadParseJSONNewtonsoft(string jsonFilePath)
         {
-            public static void Initialize()
+            _jsonFilePath = jsonFilePath;
+        }
+        public List<T> UseUserDefinedObjectWithNewtonsoftJson<T>()
+        {
+            using StreamReader reader = new(_jsonFilePath);
+            var json = reader.ReadToEnd();
+            var rs = JsonConvert.DeserializeObject<List<T>>(json);
+            return rs;
+        }
+        public List<KeyValuePair<string, T>> UseUserDefinedObjectWithNewtonsoftJsonKeyValue<T>()
+        {
+            using StreamReader reader = new(_jsonFilePath);
+            var json = reader.ReadToEnd();
+            var rs = JsonConvert.DeserializeObject<List<KeyValuePair<string, T>>>(json);
+            return rs;
+        }
+
+        //UseJsonTextReaderInNewtonsoftJson
+        public List<T> UseJsonTextReaderInNewtonsoftJson<T>()
+        {
+            var serializer = new JsonSerializer();
+            List<T> rs = new();
+            using (var streamReader = new StreamReader(_jsonFilePath))
+            using (var textReader = new JsonTextReader(streamReader))
             {
-                TM.Desktop.IO.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Resources/Config"));
-                TM.Desktop.IO.CreateFileExist(Path.Combine(Environment.CurrentDirectory, "Resources/Config", "config.json"));
+                rs = serializer.Deserialize<List<T>>(textReader);
             }
 
-            // ReadAndParseJsonFileWithNewtonsoftJson
-            public class ReadAndParseJsonFileWithNewtonsoftJson
-            {
-                private readonly string _sampleJsonFilePath;
+            return rs;
+        }
 
-                public ReadAndParseJsonFileWithNewtonsoftJson(string sampleJsonFilePath)
-                {
-                    _sampleJsonFilePath = sampleJsonFilePath;
-                }
-            }
-            public List<Teacher> UseUserDefinedObjectWithNewtonsoftJson(string configFilePath)
-            {
-                using StreamReader reader = new(configFilePath);
-                var json = reader.ReadToEnd();
-                List<Teacher> teachers = JsonConvert.DeserializeObject<List<Teacher>>(json);
+        //UseJArrayParseInNewtonsoftJson
+        public List<T> UseJArrayParseInNewtonsoftJson<T>()
+        {
+            using StreamReader reader = new(_jsonFilePath);
+            var json = reader.ReadToEnd();
+            var jarray = JArray.Parse(json);
+            List<T> rs = new();
 
-                return teachers;
+            foreach (var item in jarray)
+            {
+                var obj = item.ToObject<T>();
+                rs.Add(obj);
             }
 
-            //UseJsonTextReaderInNewtonsoftJson
-            public List<Teacher> UseJsonTextReaderInNewtonsoftJson(string configFilePath)
-            {
-                var serializer = new JsonSerializer();
-                List<Teacher> teachers = new();
-                using (var streamReader = new StreamReader(configFilePath))
-                using (var textReader = new JsonTextReader(streamReader))
-                {
-                    teachers = serializer.Deserialize<List<Teacher>>(textReader);
-                }
-
-                return teachers;
-            }
-
-            //UseJArrayParseInNewtonsoftJson
-            public List<Teacher> UseJArrayParseInNewtonsoftJson(string configFilePath)
-            {
-                using StreamReader reader = new(configFilePath);
-                var json = reader.ReadToEnd();
-                var jarray = JArray.Parse(json);
-                List<Teacher> teachers = new();
-
-                foreach (var item in jarray)
-                {
-                    Teacher teacher = item.ToObject<Teacher>();
-                    teachers.Add(teacher);
-                }
-
-                return teachers;
-            }
+            return rs;
         }
     }
     public class ReadParseJsonFileSystemTextJson
@@ -92,27 +89,30 @@ namespace TM.Desktop
         {
             PropertyNameCaseInsensitive = true
         };
-        public List<Teacher> UseFileReadAllTextWithSystemTextJson()
+        public List<T> FileReadAllTextWithSystemTextJson<T>()
         {
             var json = File.ReadAllText(_sampleJsonFilePath);
-            List<Teacher> teachers = System.Text.Json.JsonSerializer.Deserialize<List<Teacher>>(json, _options);
-
-            return teachers;
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
+            return rs;
         }
-        public List<Teacher> UseFileOpenReadTextWithSystemTextJson()
+        public List<T> FileOpenReadTextWithSystemTextJson<T>()
         {
             using FileStream json = File.OpenRead(_sampleJsonFilePath);
-            List<Teacher> teachers = System.Text.Json.JsonSerializer.Deserialize<List<Teacher>>(json, _options);
-
-            return teachers;
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
+            return rs;
         }
-        public List<Teacher> UseStreamReaderWithSystemTextJson()
+        public List<KeyValuePair<string, T>> FileOpenReadTextWithSystemTextJsonKeyValuePair<T>()
+        {
+            using FileStream json = File.OpenRead(_sampleJsonFilePath);
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<KeyValuePair<string, T>>>(json, _options);
+            return rs;
+        }
+        public List<T> StreamReaderWithSystemTextJson<T>()
         {
             using StreamReader streamReader = new(_sampleJsonFilePath);
             var json = streamReader.ReadToEnd();
-            List<Teacher> teachers = System.Text.Json.JsonSerializer.Deserialize<List<Teacher>>(json, _options);
-
-            return teachers;
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
+            return rs;
         }
     }
 
@@ -177,10 +177,10 @@ namespace TM.Desktop
     }
 
     //TM Json
-    public class Json
+    public class TMJson
     {
         string _path = "";
-        public Json(string path)
+        public TMJson(string path)
         {
             _path = path;
         }
@@ -206,7 +206,7 @@ namespace TM.Desktop
                 using (var r = new StreamReader(_path))
                 {
                     var json = r.ReadToEnd();
-                    var items = Newtonsoft.Json.Linq.JObject.Parse(json);
+                    var items = JObject.Parse(json);
                     return items;
                 }
             }

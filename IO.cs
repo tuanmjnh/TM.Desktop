@@ -273,17 +273,17 @@ namespace TM.Desktop
                 return true;
             return false;
         }
-        public static bool IsExtension(this string file, System.Collections.Generic.List<string> Extension)
+        public static bool IsExtension(this string file, List<string> Extension)
         {
             if (Extension.Count > 0 && Extension.ToLower().Contains(Path.GetExtension(file).ToLower()))
                 return true;
             return false;
         }
-        public static System.Collections.Generic.List<string> UploadFileSource(this System.Collections.Generic.Dictionary<string, object> Upload)
+        public static List<string> UploadFileSource(this Dictionary<string, object> Upload)
         {
             try
             {
-                return (System.Collections.Generic.List<string>)Upload["UploadFileSource"];
+                return (List<string>)Upload["UploadFileSource"];
             }
             catch (Exception)
             {
@@ -291,7 +291,7 @@ namespace TM.Desktop
             }
 
         }
-        public static string UploadFileSourceString(this System.Collections.Generic.Dictionary<string, object> Upload)
+        public static string UploadFileSourceString(this Dictionary<string, object> Upload)
         {
             try
             {
@@ -302,18 +302,18 @@ namespace TM.Desktop
                 return null;
             }
         }
-        public static System.Collections.Generic.List<string> UploadFile(this System.Collections.Generic.Dictionary<string, object> Upload)
+        public static List<string> UploadFile(this Dictionary<string, object> Upload)
         {
             try
             {
-                return (System.Collections.Generic.List<string>)Upload["UploadFile"];
+                return (List<string>)Upload["UploadFile"];
             }
             catch (Exception)
             {
                 return null;
             }
         }
-        public static string UploadFileString(this System.Collections.Generic.Dictionary<string, object> Upload)
+        public static string UploadFileString(this Dictionary<string, object> Upload)
         {
             try
             {
@@ -324,11 +324,11 @@ namespace TM.Desktop
                 return null;
             }
         }
-        public static System.Collections.Generic.List<string> UploadError(this System.Collections.Generic.Dictionary<string, object> Upload)
+        public static List<string> UploadError(this Dictionary<string, object> Upload)
         {
             try
             {
-                return (System.Collections.Generic.List<string>)Upload["UploadError"];
+                return (List<string>)Upload["UploadError"];
             }
             catch (Exception)
             {
