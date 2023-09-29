@@ -1,6 +1,7 @@
 ﻿using System;
 namespace TM.Desktop
 {
+    /*
     public class ResizeImage
     {
         public static System.Drawing.Image RezizeImage(System.Drawing.Image img, int maxWidth, int maxHeight)
@@ -92,4 +93,5 @@ namespace TM.Desktop
             catch (Exception) { return ""; }
         }
     }
+    */
 }

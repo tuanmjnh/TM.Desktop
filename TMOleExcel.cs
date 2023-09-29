@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
-using System.Data.OleDb;
-using ExcelApp = Microsoft.Office.Interop.Excel;
+//using System.Data.OleDb;
+//using ExcelApp = Microsoft.Office.Interop.Excel;
 namespace TM.Desktop.Interop
 {
+    /*
     public class ExcelStatic
     {
         //Declare
@@ -989,4 +990,5 @@ public static class TMDBS
         Dispose();
         return rs;
     }
+    */
 }

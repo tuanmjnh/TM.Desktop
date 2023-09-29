@@ -63,15 +63,57 @@ namespace TM.Desktop
             }
             catch (Exception) { throw; }
         }
-        public static bool Kill(string ProcessName)
+        public static bool Kill(string ProcessName, bool killAll = true)
         {
             try
             {
-                var process = Process.GetProcessesByName(ProcessName).OrderByDescending(p => p.StartTime).First();
-                if (!process.HasExited)
-                    process.Kill();
-                else return false;
-                return true;
+                if (killAll)
+                {
+                    var process = Process.GetProcessesByName(ProcessName).OrderByDescending(p => p.StartTime);
+                    foreach (var p in process)
+                    {
+                        if (!p.HasExited) p.Kill();
+                    }
+                    return true;
+                }
+                else
+                {
+                    var process = Process.GetProcessesByName(ProcessName).OrderByDescending(p => p.StartTime).First();
+                    if (!process.HasExited)
+                        process.Kill();
+                    else return false;
+                    return true;
+                }
+
+            }
+            catch (Exception) { throw; }
+        }
+        public static void KillCurrent(string ProcessName, bool killAll = true)
+        {
+            try
+            {
+                var CurrentProcess = Process.GetCurrentProcess();
+                if (killAll)
+                {
+                    foreach (var p in Process.GetProcesses())
+                    {
+                        if (p.Id != CurrentProcess.Id)
+                            if (p.ProcessName == ProcessName) p.Kill();
+                    }
+                }
+                else
+                {
+                    foreach (var p in Process.GetProcesses())
+                    {
+                        if (p.Id != CurrentProcess.Id)
+                            if (p.ProcessName == ProcessName)
+                            {
+                                p.Kill();
+                                break;
+                            }
+                    }
+                }
+
             }
             catch (Exception) { throw; }
         }

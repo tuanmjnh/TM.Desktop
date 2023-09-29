@@ -370,5 +370,9 @@ namespace TM.Desktop
         {
             return Random(6, 9);
         }
+        public static int Percen(double current, double total)
+        {
+            return (int)(((float)(current) / total) * 100);
+        }
     }
 }

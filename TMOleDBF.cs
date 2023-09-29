@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data.OleDb;
 namespace TM.Desktop
 {
+    /*
     public class OleDBF
     {
         public static string DataSource { get; set; }
@@ -467,5 +467,6 @@ namespace TM.Desktop
         {
             return GetSchemaTable(DataSource, "0", table);
         }
-    }
+    //}
+     */
 }

@@ -107,5 +107,16 @@ namespace TM.Desktop
             }
             catch (Exception) { return null; }
         }
+        public static string GetTimePattern(this string s)
+        {
+            try
+            {
+                //string value = "30.Jul.2019 This the line I want to match 15:04:09";
+                string timepattern = @"time=(?:2[0-3]|[01]?[0-9])[:.][0-5]?[0-9][:.][0-5]?[0-9]";
+                var timeRender = System.Text.RegularExpressions.Regex.Match(s, timepattern);
+                return timeRender.ToString();
+            }
+            catch (Exception) { return null; }
+        }
     }
 }

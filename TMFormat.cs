@@ -176,12 +176,17 @@ namespace TM.Desktop
         //Formating Datetime
         public static string SecondsToTime(double seconds,string format= @"hh\:mm\:ss")
         {
-            TimeSpan time = TimeSpan.FromSeconds(seconds);
+            var timespan = TimeSpan.FromSeconds(seconds);
 
             //here backslash is must to tell that colon is
             //not the part of format, it just a character that we want in output
-            string str = time.ToString(format);
-            return str;
+            string rs = timespan.ToString(format);
+            return rs;
+        }
+        public static double TimeToSeconds(string time)
+        {
+            var seconds = TimeSpan.Parse(time).TotalSeconds;
+            return seconds;
         }
     }
 }

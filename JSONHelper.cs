@@ -95,7 +95,7 @@ namespace TM.Desktop
             var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
             return rs;
         }
-        public List<T> FileOpenReadTextWithSystemTextJson<T>()
+        public List<T> ListFileOpenReadTextWithSystemTextJson<T>()
         {
             using FileStream json = File.OpenRead(_sampleJsonFilePath);
             var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
@@ -112,6 +112,12 @@ namespace TM.Desktop
             using StreamReader streamReader = new(_sampleJsonFilePath);
             var json = streamReader.ReadToEnd();
             var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(json, _options);
+            return rs;
+        }
+        public T FileOpenReadTextWithSystemTextJson<T>()
+        {
+            using FileStream json = File.OpenRead(_sampleJsonFilePath);
+            var rs = System.Text.Json.JsonSerializer.Deserialize<T>(json, _options);
             return rs;
         }
     }
