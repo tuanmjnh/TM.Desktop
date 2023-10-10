@@ -139,5 +139,26 @@ namespace TM.Desktop
                     if (str[i].ToString() + str[i + 1].ToString() + str[i + 2].ToString() == arr[j]) val += j;
             return val;
         }
+        public static string SHA256(string str)
+        {
+            var crypt = new SHA256Managed();
+            var hash = new System.Text.StringBuilder();
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(str));
+            foreach (byte theByte in crypto)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return hash.ToString();
+        }
+        public static string Base64Encode(string text)
+        {
+            var textBytes = Encoding.UTF8.GetBytes(text);
+            return Convert.ToBase64String(textBytes);
+        }
+        public static string Base64Decode(string base64)
+        {
+            var base64Bytes = Convert.FromBase64String(base64);
+            return Encoding.UTF8.GetString(base64Bytes);
+        }
     }
 }

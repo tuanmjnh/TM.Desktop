@@ -133,6 +133,10 @@ namespace TM.Desktop
 
             File.WriteAllText(fileName, jsonString);
         }
+        public static void Write(string jsonString, string fileName)
+        {
+            File.WriteAllText(fileName, jsonString);
+        }
 
         public static void WriteFormat(object obj, string fileName) // Pretty Write
         {
@@ -183,43 +187,23 @@ namespace TM.Desktop
     }
 
     //TM Json
-    public class TMJson
+    public static class Json
     {
-        string _path = "";
-        public TMJson(string path)
+        private static readonly System.Text.Json.JsonSerializerOptions _options = new() { PropertyNameCaseInsensitive = true };
+        public static List<T> ReadTextWithSystemTextJsonList<T>(this string serialize)
         {
-            _path = path;
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<T>>(serialize, _options);
+            return rs;
         }
-        public T LoadJson<T>()
+        public static T ReadTextWithSystemTextJson<T>(this string serialize)
         {
-            try
-            {
-                using (var r = new StreamReader(_path))
-                {
-                    var json = r.ReadToEnd();
-                    return JsonConvert.DeserializeObject<T>(json);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            var rs = System.Text.Json.JsonSerializer.Deserialize<T>(serialize, _options);
+            return rs;
         }
-        public dynamic LoadJson()
+        public static List<KeyValuePair<string, T>> ReadTextWithSystemTextJsonKeyValuePair<T>(this string serialize)
         {
-            try
-            {
-                using (var r = new StreamReader(_path))
-                {
-                    var json = r.ReadToEnd();
-                    var items = JObject.Parse(json);
-                    return items;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            var rs = System.Text.Json.JsonSerializer.Deserialize<List<KeyValuePair<string, T>>>(serialize, _options);
+            return rs;
         }
     }
 }
