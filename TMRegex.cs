@@ -147,16 +147,16 @@ namespace TM.Desktop
             }
             catch (Exception) { return false; }
         }
-        public static string youtubeGetIDVideos(this string s)
+        public static Match youtubeGetIDVideos(this string s)
         {
             try
             {
                 //string pattern = @"(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))";
-                string pattern = @"(youtu.*be.*)\/(\@\w+|)\/(videos|shorts)|(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))";
+                string pattern = @"(youtu.*be.*)\/(@\w+|)\/|(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))";
                 //string pattern = @"(youtu.*be.*)\/(\@\w+|)\/(videos|shorts)";
                 var regex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
                 var rs = regex.Match(s);
-                if (rs.Success) return rs.Groups[2].Value +" "+ rs.Groups[6].Value;
+                if (rs.Success) return rs;//.Groups[2].Value +" "+ rs.Groups[6].Value;
                 else return null;
             }
             catch (Exception) { return null; }
