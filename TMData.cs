@@ -290,6 +290,15 @@ namespace TM.Desktop
             foreach (var item in collection) FixDateFoxPro(item);
             return collection;
         }
+        public static List<T> AddIfNotExists<T>(this List<T> list, T value)
+        {
+            if (!list.Contains(value))
+            {
+                list.Add(value);
+                return list;
+            }
+            return list;
+        }
     }
     public static class Dictionary
     {

@@ -119,9 +119,9 @@ namespace TM.Desktop
             try
             {
                 //string value = "30.Jul.2019 This the line I want to match 15:04:09";
-                string timepattern = @"time=(?:2[0-3]|[01]?[0-9])[:.][0-5]?[0-9][:.][0-5]?[0-9]";
-                var timeRender = Regex.Match(s, timepattern);
-                return timeRender.ToString();
+                string pattern = @"time=(?:2[0-3]|[01]?[0-9])[:.][0-5]?[0-9][:.][0-5]?[0-9]";
+                var match = Regex.Match(s, pattern);
+                return match.ToString();
             }
             catch (Exception) { return null; }
         }
@@ -146,20 +146,6 @@ namespace TM.Desktop
                 return regex.IsMatch(s); ;
             }
             catch (Exception) { return false; }
-        }
-        public static Match youtubeGetIDVideos(this string s)
-        {
-            try
-            {
-                //string pattern = @"(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))";
-                string pattern = @"(youtu.*be.*)\/(@\w+|)\/|(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))";
-                //string pattern = @"(youtu.*be.*)\/(\@\w+|)\/(videos|shorts)";
-                var regex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
-                var rs = regex.Match(s);
-                if (rs.Success) return rs;//.Groups[2].Value +" "+ rs.Groups[6].Value;
-                else return null;
-            }
-            catch (Exception) { return null; }
         }
     }
 }
