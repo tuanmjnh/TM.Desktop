@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rnnEtS57t7RGQRet4pBK4tlsvn1DVe75gJzkvgBYtyyePO/Z7j5TfBLU54tuoS5VqNprSx2ylcZC8Z2D5nseMQ==",
+  "dgSpecHash": "FTjdaoWyqITl/k3MmXyzi2W/R4HQDB37J9MvpdaD0KgWvqUy5pNVUDIODXw8ILjsXVyG6frngAijG+Y2dVSwPw==",
   "success": true,
   "projectFilePath": "D:\\applications\\TM.Desktop\\TM.Desktop.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tuanm\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\tuanmjnh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
