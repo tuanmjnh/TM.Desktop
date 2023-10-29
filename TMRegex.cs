@@ -114,6 +114,24 @@ namespace TM.Desktop
             }
             catch (Exception) { return null; }
         }
+        public static string RemoveSpecialCharacters(this string s)
+        {
+            try
+            {
+                var regex = @"(&|'|<|>|\||\\|/|{|}|`|!|@|#|\$|%|\^|&|\*|\(|\)|;|»|«|\\xa0)";
+                return Regex.Replace(s, regex, "").Replace("\"", "");
+            }
+            catch (Exception) { return string.Empty; }
+        }
+        public static string RemoveSpecialCharacters2(this string s)
+        {
+            try
+            {
+                var regex = @"\xA0|\xa0|\xE1|\xe1|~|\t";
+                return Regex.Replace(s, regex, "").Replace("\"", "");
+            }
+            catch (Exception) { return string.Empty; }
+        }
         public static string GetTimePattern(this string s)
         {
             try
