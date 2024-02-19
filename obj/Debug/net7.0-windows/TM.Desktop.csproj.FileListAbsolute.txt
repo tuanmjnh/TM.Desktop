@@ -6,6 +6,7 @@ D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.GeneratedMSBuildE
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.AssemblyInfoInputs.cache
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.AssemblyInfo.cs
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.csproj.CoreCompileInputs.cache
+D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.sourcelink.json
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.dll
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\refint\TM.Desktop.dll
 D:\applications\TM.Desktop\obj\Debug\net7.0-windows\TM.Desktop.pdb
