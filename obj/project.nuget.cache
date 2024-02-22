@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ul2d0AnYKb7IWrLFvDhqXfCAQa6b49RQ+TATNh+7bYCRmgh0j+QxepDgEg7CLGljaFv3YM53N7SEVk539Gbmg==",
+  "dgSpecHash": "h/GHv+SbR/PxkBEG1v7SAN9Fv8pAg+pCxN+Lg6oK0CSBitu08Fw/Nhg4J9ZsiZ+QnTW20fZvVouREoi0uRcvCg==",
   "success": true,
   "projectFilePath": "D:\\applications\\TM.Desktop\\TM.Desktop.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
-    "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
