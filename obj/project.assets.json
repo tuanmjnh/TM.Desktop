@@ -55,7 +55,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tuanmjnh\\.nuget\\packages\\": {}
+    "C:\\Users\\tuanm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -63,11 +63,11 @@
       "projectUniqueName": "D:\\applications\\TM.Desktop\\TM.Desktop.csproj",
       "projectName": "TM.Desktop",
       "projectPath": "D:\\applications\\TM.Desktop\\TM.Desktop.csproj",
-      "packagesPath": "C:\\Users\\tuanmjnh\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\tuanm\\.nuget\\packages\\",
       "outputPath": "D:\\applications\\TM.Desktop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tuanmjnh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tuanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
