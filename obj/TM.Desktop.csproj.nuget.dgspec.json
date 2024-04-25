@@ -45,6 +45,26 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
+            "DeviceId": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
+            "DeviceId.Linux": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "DeviceId.Mac": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "DeviceId.Windows": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
+            "DeviceId.Windows.Wmi": {
+              "target": "Package",
+              "version": "[6.6.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
