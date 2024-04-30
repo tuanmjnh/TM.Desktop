@@ -7,6 +7,11 @@ namespace TM.Desktop
 {
     public static class DeviceID
     {
+        public static string test()
+        {
+            var a = new DeviceIdBuilder().AddMachineName();
+            return a.ToString();
+        }
         public static string get()
         {
             return new DeviceIdBuilder()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace TM.Desktop
 {
@@ -443,6 +444,22 @@ namespace TM.Desktop
             string ext = Path.GetExtension(filename);
             string rs = filename.Replace(ext, "");
             return rs;
+        }
+        public static string CreatePassword(
+            int length=8,
+            string strLower= "abcdefghijklmnopqrstuvwxyz", 
+            string strUpper= "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            string number = "0123456789",
+            string special="~!@#$%^&*()_+-?.")
+        {
+            string valid = $"{strLower}{strUpper}{number}{special}";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
         }
     }
 }
