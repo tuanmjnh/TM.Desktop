@@ -68,6 +68,34 @@ namespace TM.Desktop
             }
             catch (Exception) { throw; }
         }
+        public static bool Delete(List<string> files, bool IsMapPath = true)
+        {
+            try
+            {
+                if(files.Count <1) return false;
+                //path = IsMapPath ? MapPath(path) : path;
+                foreach (var item in files)
+                    if (File.Exists(item))
+                        File.Delete(item);
+                return true;
+                //else return false;
+            }
+            catch (Exception) { throw; }
+        }
+        public static bool Delete(string[] files, bool IsMapPath = true)
+        {
+            try
+            {
+                if (files.Length < 1) return false;
+                //path = IsMapPath ? MapPath(path) : path;
+                foreach (var item in files)
+                    if (File.Exists(item))
+                        File.Delete(item);
+                return true;
+                //else return false;
+            }
+            catch (Exception) { throw; }
+        }
         public static bool Delete(string path, string[] files, bool IsMapPath = true)
         {
             try
