@@ -128,6 +128,19 @@
           }
         }
       },
+      "Octokit/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.CodeDom/8.0.0": {
         "type": "package",
         "compile": {
@@ -479,6 +492,20 @@
         "packageIcon.png"
       ]
     },
+    "Octokit/11.0.1": {
+      "sha512": "fpwF/DxMJyGS+pIXDKQozx0wCIpOfG8VDr10ls+m9Gn9Lz8GslhhApxkKD9JCNO60HRUeMJsedsAS24gCjTD7Q==",
+      "type": "package",
+      "path": "octokit/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Octokit.dll",
+        "lib/netstandard2.0/Octokit.xml",
+        "octokit.11.0.1.nupkg.sha512",
+        "octokit.nuspec",
+        "octokit.png"
+      ]
+    },
     "System.CodeDom/8.0.0": {
       "sha512": "WTlRjL6KWIMr/pAaq3rYqh0TJlzpouaQ/W1eelssHgtlwHAH25jXTkUphTYx9HaIIf7XA6qs/0+YhtLEQRkJ+Q==",
       "type": "package",
@@ -753,7 +780,8 @@
       "DeviceId.Mac >= 6.3.0",
       "DeviceId.Windows >= 6.6.0",
       "DeviceId.Windows.Wmi >= 6.6.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "Octokit >= 11.0.1"
     ]
   },
   "packageFolders": {
@@ -823,6 +851,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[11.0.1, )"
           }
         },
         "imports": [
@@ -836,20 +868,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.19, 7.0.19]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.19, 7.0.19]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.19, 7.0.19]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
