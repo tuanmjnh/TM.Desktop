@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "njg2MlO2QkY=",
+  "dgSpecHash": "C+g4rZ4QkUI=",
   "success": true,
   "projectFilePath": "D:\\applications\\TM.Desktop\\TM.Desktop.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\deviceid.mac\\6.3.0\\deviceid.mac.6.3.0.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\deviceid.windows\\6.6.0\\deviceid.windows.6.6.0.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\deviceid.windows.wmi\\6.6.0\\deviceid.windows.wmi.6.6.0.nupkg.sha512",
+    "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23401.1\\microsoft.net.illink.analyzers.7.0.100-1.23401.1.nupkg.sha512",
+    "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23401.1\\microsoft.net.illink.tasks.7.0.100-1.23401.1.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\tuanmjnh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
