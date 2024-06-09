@@ -1,21 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TM.Desktop
 {
     public class IO
     {
-        public static bool Rename(string sourceFile, string DestFile, bool IsMapPath = true)
+        public static string Rename(string sourceFile, string newNameFile,  bool isTrim = true)
         {
             try
             {
-                //sourceFile = IsMapPath ? MapPath(sourceFile) : sourceFile;
-                //DestFile = IsMapPath ? MapPath(DestFile) : DestFile;
-                File.Move(sourceFile, DestFile);
-                return true;
+                var filePath = Path.GetDirectoryName(sourceFile);
+                if (filePath != null)
+                {
+                    var fileName = Path.GetFileNameWithoutExtension(sourceFile);
+                    var ext = Path.GetExtension(sourceFile);
+                    var newPath = Path.Combine(isTrim ? filePath.Trim() : filePath, (isTrim ? newNameFile.Trim() : newNameFile) + ext);
+                    if (sourceFile != newPath)
+                    {
+                        File.Move(sourceFile, newPath);
+                        //if (delSource) IO.Delete(sourceFile);
+                    }
+                    return newPath;
+                }
+                return null;
             }
-            catch (Exception) { return false; }
+            catch (Exception) { return null; }
         }
-        public static FileInfo ReExtension(string sourceFile, string extension, bool IsMapPath = true)
+        public static FileInfo ReExtension(string sourceFile, string extension)
         {
             try
             {
@@ -27,7 +38,7 @@ namespace TM.Desktop
             }
             catch (Exception) { return null; }
         }
-        public static FileInfo ReExtensionToLower(string sourceFile, bool IsMapPath = true)
+        public static FileInfo ReExtensionToLower(string sourceFile)
         {
             //sourceFile = IsMapPath ? MapPath(sourceFile) : sourceFile;
             var file = new FileInfo(sourceFile);
@@ -39,7 +50,7 @@ namespace TM.Desktop
             }
             catch (Exception) { return file; }
         }
-        public static bool Copy(string sourceFile, string DestFile, bool IsMapPath = true)
+        public static bool Copy(string sourceFile, string DestFile)
         {
             try
             {
@@ -54,7 +65,7 @@ namespace TM.Desktop
         {
             return Copy(sourceFile, CreateFileExist(sourceFile));
         }
-        public static bool Delete(string path, bool IsMapPath = true)
+        public static bool Delete(string path)
         {
             try
             {
@@ -68,11 +79,11 @@ namespace TM.Desktop
             }
             catch (Exception) { throw; }
         }
-        public static bool Delete(List<string> files, bool IsMapPath = true)
+        public static bool Delete(List<string> files)
         {
             try
             {
-                if(files.Count <1) return false;
+                if (files.Count < 1) return false;
                 //path = IsMapPath ? MapPath(path) : path;
                 foreach (var item in files)
                     if (File.Exists(item))
@@ -266,6 +277,10 @@ namespace TM.Desktop
                 rs.Add(tmp);
             }
             return rs;
+        }
+        public static List<string> GetFiles(string sourceFolder, string filters, System.IO.SearchOption searchOption)
+        {
+            return filters.Split('|').SelectMany(filter => System.IO.Directory.GetFiles(sourceFolder, filter, searchOption)).ToList();
         }
     }
     public static class IOS
