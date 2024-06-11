@@ -27,7 +27,7 @@ namespace TM.Desktop
         }
         public static async Task<Release> GetLatestVersion(string token, string owner, string repoName)
         {
-            
+
             var client = new GitHubClient(new Octokit.ProductHeaderValue(repoName));
             client.Credentials = new Credentials(token); // NOTE: not real token
             var latestVersion = await client.Repository.Release.GetLatest(owner, repoName);
@@ -75,7 +75,7 @@ namespace TM.Desktop
             await webClient.DownloadFileTaskAsync(new Uri(url), zipPath);
         }
         static DateTime lastUpdate;
-        static long BytesPerSecond(long bytes)
+        public static long BytesPerSecond(long bytes)
         {
             try
             {
