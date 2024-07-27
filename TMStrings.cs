@@ -446,11 +446,11 @@ namespace TM.Desktop
             return rs;
         }
         public static string CreatePassword(
-            int length=8,
-            string strLower= "abcdefghijklmnopqrstuvwxyz", 
-            string strUpper= "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            int length = 8,
+            string strLower = "abcdefghijklmnopqrstuvwxyz",
+            string strUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             string number = "0123456789",
-            string special="~!@#$%^&*()_+-?.")
+            string special = "~!@#$%^&*()_+-?.")
         {
             string valid = $"{strLower}{strUpper}{number}{special}";
             StringBuilder res = new StringBuilder();
@@ -472,6 +472,23 @@ namespace TM.Desktop
             }
 
             return Encoding.UTF8.GetString(utf8Bytes, 0, utf8Bytes.Length);
+        }
+        private static string GetImageFilter()
+        {
+            return
+                "All Files (*.*)|*.*" +
+                "|All Pictures (*.emf;*.wmf;*.jpg;*.jpeg;*.jfif;*.jpe;*.png;*.bmp;*.dib;*.rle;*.gif;*.emz;*.wmz;*.tif;*.tiff;*.svg;*.ico)" +
+                "|*.emf;*.wmf;*.jpg;*.jpeg;*.jfif;*.jpe;*.png;*.bmp;*.dib;*.rle;*.gif;*.emz;*.wmz;*.tif;*.tiff;*.svg;*.ico" +
+                "|Windows Enhanced Metafile (*.emf)|*.emf" +
+                "|Windows Metafile (*.wmf)|*.wmf" +
+                "|JPEG File Interchange Format (*.jpg;*.jpeg;*.jfif;*.jpe)|*.jpg;*.jpeg;*.jfif;*.jpe" +
+                "|Portable Network Graphics (*.png)|*.png" +
+                "|Bitmap Image File (*.bmp;*.dib;*.rle)|*.bmp;*.dib;*.rle" +
+                "|Compressed Windows Enhanced Metafile (*.emz)|*.emz" +
+                "|Compressed Windows MetaFile (*.wmz)|*.wmz" +
+                "|Tag Image File Format (*.tif;*.tiff)|*.tif;*.tiff" +
+                "|Scalable Vector Graphics (*.svg)|*.svg" +
+                "|Icon (*.ico)|*.ico";
         }
     }
 }
