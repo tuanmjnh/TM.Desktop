@@ -77,7 +77,7 @@ namespace TM.Desktop
                 }
                 else return true;
             }
-            catch (Exception) { throw; }
+            catch (Exception) { return false; }
         }
         public static bool Delete(List<string> files)
         {
