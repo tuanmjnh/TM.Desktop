@@ -1,7 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using static TM.Desktop.ReadParseJSONNewtonsoft;
 
 namespace TM.Desktop
 {

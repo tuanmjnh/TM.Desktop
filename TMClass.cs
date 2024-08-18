@@ -29,5 +29,10 @@ namespace TM.Desktop
                 rs.Add(p.Name, p.GetValue(obj, null));
             return rs;
         }
+        public static T Clone<T>(this T source)
+        {
+            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(source);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(serialized);
+        }
     }
 }
