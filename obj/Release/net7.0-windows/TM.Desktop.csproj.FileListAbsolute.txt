@@ -1,0 +1,13 @@
+D:\applications\TM.Desktop\bin\Release\net7.0-windows\TM.Desktop.deps.json
+D:\applications\TM.Desktop\bin\Release\net7.0-windows\TM.Desktop.dll
+D:\applications\TM.Desktop\bin\Release\net7.0-windows\TM.Desktop.pdb
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.csproj.AssemblyReference.cache
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.GeneratedMSBuildEditorConfig.editorconfig
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.AssemblyInfoInputs.cache
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.AssemblyInfo.cs
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.csproj.CoreCompileInputs.cache
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.sourcelink.json
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.dll
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\refint\TM.Desktop.dll
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\TM.Desktop.pdb
+D:\applications\TM.Desktop\obj\Release\net7.0-windows\ref\TM.Desktop.dll
